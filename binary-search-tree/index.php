@@ -65,6 +65,8 @@ class BinarySearchTree
 
     public function searchTree($node, int $nubmerToSearch = 0)
     {
+        static $a=1;echo$a++."\n";
+
         if($node === null || $node->data == $nubmerToSearch) return $node;
         
         if($nubmerToSearch < $node->data)
@@ -77,18 +79,54 @@ class BinarySearchTree
     }
 
 }
-
-
+/*-----------------------------*/
 $bst = new BinarySearchTree();
 
-$bst->insertNumber(100);
-$bst->insertNumber(50);
-$bst->insertNumber(150);
-$bst->insertNumber(200);
+$bst->insertNumber(1000);
+$bst->insertNumber(500);
+$bst->insertNumber(1500);
+$bst->insertNumber(250);
+$bst->insertNumber(750);
+$bst->insertNumber(1250);
+$bst->insertNumber(1750);
+$bst->insertNumber(250);
+$bst->insertNumber(750);
+$bst->insertNumber(1250);
+$bst->insertNumber(1750);
 
+/*
+The above insertion will create a Binary Search Tree like:
 
+                                    ( 1000 )
+                                     /   \
+                                    /     \
+                                   /       \
+                                  /         \
+                                 /           \
+                            ( 500 )           ( 1500 )
+                             / \                / \
+                            /   \              /   \
+                           /     \            /     \
+                          /       \          /       \
+                     ( 250 )   ( 750 )  ( 1250 )   ( 1750 )
+                       / \                / \
+                      /   \              /   \
+                     /     \            /     \
+                    /       \          /       \
+                 ( 250 )   ( 750 )  ( 1250 )   ( 1750 )
+                   / \
+                  /   \
+                 /     \
+                /       \
+            ( 200 )   ( 275 )
+             / \
+            /   \
+           /     \
+          /       \
+      ( 150 )   ( 260 )
+*/
 
-$node = $bst->search(50);
+$node = $bst->search(150); // It takes only 4 iteration to search 150 in the Tree (out of total 15 numbers). This shows the power of Binary Search Trees.
 
 if(is_null($node))
 {
